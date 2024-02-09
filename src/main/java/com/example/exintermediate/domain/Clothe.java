@@ -21,6 +21,19 @@ public class Clothe {
   private Integer price;
   /** サイズ */
   private String size;
+
+  
+  public Clothe(Integer id, String category, String genre, Integer gender, String color, Integer price, String size) {
+    this.id = id;
+    this.category = category;
+    this.genre = genre;
+    this.gender = gender;
+    this.color = color;
+    this.price = price;
+    this.size = size;
+  }
+  public Clothe() {
+  }
   public static int getFemale() {
     return FEMALE;
   }
