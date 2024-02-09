@@ -15,6 +15,19 @@ public class Hotel {
   private Integer price;
   /** 駐車場 */
   private String parking;
+
+  public Hotel() {
+  }
+  public Hotel(Integer id, String areaName, String hotelName, String address, String nearestStation, Integer price,
+      String parking) {
+    this.id = id;
+    this.areaName = areaName;
+    this.hotelName = hotelName;
+    this.address = address;
+    this.nearestStation = nearestStation;
+    this.price = price;
+    this.parking = parking;
+  }
   public Integer getId() {
     return id;
   }

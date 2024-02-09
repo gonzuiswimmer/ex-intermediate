@@ -1,7 +1,6 @@
 package com.example.exintermediate.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
@@ -24,9 +23,9 @@ public class TeamServiceTest {
   
   @SuppressWarnings("deprecation")
   @BeforeEach // テストメソッド（@Testをつけたメソッド）実行前に都度実施
-    public void initmocks() {
-        MockitoAnnotations.initMocks(this);
-    }
+  public void initmocks() {
+    MockitoAnnotations.initMocks(this);
+  }
   
   @Test
   void testFindAll() {
