@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.example.exintermediate.domain.Clothe;
@@ -39,7 +37,6 @@ public class ClotheRepository {
    * @return List<Clothe> Clotheオブジェクトのリスト
    */
   public List<Clothe> search(Integer gender, String color){
-    SqlParameterSource param;
     StringBuilder builder = new StringBuilder();
     builder.append(SEARCH_QUERY);
     // 両方指定

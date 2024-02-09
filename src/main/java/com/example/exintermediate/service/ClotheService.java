@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.exintermediate.domain.Clothe;
 import com.example.exintermediate.repository.ClotheRepository;
@@ -18,6 +19,7 @@ public class ClotheService {
    * 
    * @return List<Clothe> Clotheオブジェクトのリスト
    */
+  @Transactional
   public List<Clothe> search(Integer gender, String color){
     return repository.search(gender, color);
   }

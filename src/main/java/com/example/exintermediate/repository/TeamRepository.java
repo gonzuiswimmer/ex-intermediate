@@ -51,7 +51,7 @@ public class TeamRepository {
    * @param id
    * @return Team チームオブジェクト
    */
-  public Team Load(int id){
+  public Team load(int id){
     SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
     return template.queryForObject(LOAD_SQL, param, TEAM_ROW_MAPPER);
   }

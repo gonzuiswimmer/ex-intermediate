@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.exintermediate.domain.Team;
 import com.example.exintermediate.repository.TeamRepository;
@@ -18,6 +19,7 @@ public class TeamService {
    * 
    * @return
    */
+  @Transactional
   public List<Team> findAll(){
     return repository.findAll();
   }
@@ -28,7 +30,8 @@ public class TeamService {
    * @param id
    * @return Team チームオブジェクト
    */
+  @Transactional
   public Team load(int id){
-    return repository.Load(id);
+    return repository.load(id);
   }
 }
