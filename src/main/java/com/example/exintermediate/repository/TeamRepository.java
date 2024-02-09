@@ -20,6 +20,11 @@ public class TeamRepository {
       FROM teams
         ORDER BY inauguration ASC;   
   """;
+  private static final String LOAD_SQL = """
+    SELECT id, league_name, team_name, headquarters, inauguration, history
+      FROM teams
+        WHERE id = :id;  
+  """;
   private static final RowMapper<Team> TEAM_ROW_MAPPER = (rs,i) -> {
     Team team = new Team();
     team.setId(rs.getInt("id"));
@@ -39,5 +44,15 @@ public class TeamRepository {
   public List<Team> findAll(){
     SqlParameterSource param = new MapSqlParameterSource();
     return template.query(FIND_ALL_QUERY, param, TEAM_ROW_MAPPER);
+  }
+
+  /**
+   * 引数に指定したチームのidをもとに、該当のチーム情報を取得して返却する.
+   * @param id
+   * @return Team チームオブジェクト
+   */
+  public Team Load(int id){
+    SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
+    return template.queryForObject(LOAD_SQL, param, TEAM_ROW_MAPPER);
   }
 }

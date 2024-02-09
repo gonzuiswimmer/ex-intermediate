@@ -1,7 +1,6 @@
 package com.example.exintermediate.controller;
 
 import java.util.List;
-import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +11,9 @@ import com.example.exintermediate.domain.Team;
 import com.example.exintermediate.service.TeamService;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 @RequestMapping("/team")
@@ -24,7 +26,16 @@ public class TeamController {
   public String index(Model model) {
     List<Team> team_list = service.findAll();
     model.addAttribute("team_list", team_list);
-    
+
     return "team/index";
   }
+
+  @GetMapping("/show/{id}")
+  public String show(Model model, @PathVariable("id") Integer id) {
+    Team team = service.load(id);
+    model.addAttribute("team", team);
+
+    return "team/show";
+  }
+  
 }

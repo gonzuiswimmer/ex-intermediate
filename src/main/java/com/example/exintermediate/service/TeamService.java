@@ -21,4 +21,14 @@ public class TeamService {
   public List<Team> findAll(){
     return repository.findAll();
   }
+
+  /**
+   * 該当のチーム情報を取得して返す.
+   * 
+   * @param id
+   * @return Team チームオブジェクト
+   */
+  public Team load(int id){
+    return repository.Load(id);
+  }
 }

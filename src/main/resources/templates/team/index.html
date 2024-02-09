@@ -8,7 +8,7 @@
 <body>
   <h2>野球チーム一覧</h2>
   <ul th:each="team : ${team_list}">
-    <li><a href="#" th:text="${team.teamName}">team_name</a></li>
+    <li style="list-style: none;"><a th:href="@{/team/show/{id}(id=${team.id})}" th:text="${team.teamName}">team_name</a></li>
   </ul>
 </body>
 </html>
